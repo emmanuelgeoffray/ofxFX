@@ -35,7 +35,8 @@ typedef enum {
     BLEND_HUE,
     BLEND_SATURATION,
     BLEND_COLOR,
-    BLEND_LUMINOSITY
+    BLEND_LUMINOSITY,
+    BLEND_LIGHTEN
 } PSBlendMode;
 
 class ofxBlend : public ofxFXObject {	
@@ -268,6 +269,8 @@ public:
                 result = BlendColor(baseCol.rgb, blendCol.rgb);\
             } else if (mode == 24){\
                 result = BlendLuminosity(baseCol.rgb, blendCol.rgb);\
+            } else if (mode == 25){\
+                result = BlendLightenf(baseCol.rgb, blendCol.rgb);\
             } else {\
                 result = BlendNormal(baseCol.rgb, blendCol.rgb);\
             }\
